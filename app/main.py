@@ -26,45 +26,40 @@ class Distance:
     def __mul__(self, other: int | float) -> Distance:
         return Distance(self.km * other)
 
-    def __truediv__(self, other: Distance | int | float) -> Distance:
+    def __truediv__(self, other: int | float) -> Distance:
         return Distance(round(self.km / other, 2))
 
-    def __lt__(self, other: any) -> bool:
+    def __lt__(self, other: Distance | int | float) -> bool:
         if isinstance(other, Distance):
             return self.km < other.km
         if isinstance(other, (int, float)):
             return self.km < other
-        else:
-            return NotImplemented
+        return NotImplemented
 
-    def __gt__(self, other: any) -> bool:
+    def __gt__(self, other: Distance | int | float) -> bool:
         if isinstance(other, Distance):
             return self.km > other.km
         if isinstance(other, (int, float)):
             return self.km > other
-        else:
-            return NotImplemented
+        return NotImplemented
 
-    def __eq__(self, other: any) -> bool:
+    def __eq__(self, other: Distance | int | float) -> bool:
         if isinstance(other, Distance):
             return self.km == other.km
         if isinstance(other, (int, float)):
             return self.km == other
-        else:
-            return NotImplemented
+        return NotImplemented
 
-    def __le__(self, other: any) -> bool:
+    def __le__(self, other: Distance | int | float) -> bool:
         if isinstance(other, Distance):
             return self.km <= other.km
         if isinstance(other, (int, float)):
             return self.km <= other
-        else:
-            return NotImplemented
+        return NotImplemented
 
-    def __ge__(self, other: any) -> bool:
+    def __ge__(self, other: Distance | int | float) -> bool:
         if isinstance(other, Distance):
             return self.km >= other.km
         if isinstance(other, (int, float)):
             return self.km >= other
-        else:
-            return NotImplemented
+        return NotImplemented
